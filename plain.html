@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const encoded = params.get("html");
+
+      if (encoded) {
+        try {
+          const html = atob(encoded);
+          document.body.innerHTML = html;
+        } catch {
+          document.body.textContent = "Invalid Base64 HTML.";
+        }
+      }
+    </script>
+  </body>
+</html>
