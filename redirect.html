@@ -4,8 +4,12 @@
     <script>
       const params = new URLSearchParams(window.location.search);
       const target = params.get("web");
+      const encoded = params.get("enc");
 
-      if (target) {
+      if (encoded) {
+        const newTarget = atob(encoded);
+        window.location.href = newTarget;
+      } else if (target) {
         window.location.href = target;
       }
     </script>
